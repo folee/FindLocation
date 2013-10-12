@@ -32,10 +32,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".DingWei"
-            android:label="定位" >
-        </activity>
         <activity android:name=".PhoneInfo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,40 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- 以下是酷果广告平台在application段内配置的内容 -->
-        <meta-data
-            android:name="cooId"
-            android:value="3586c70d27df441091eb4e3e9a6daec0" />
-        <meta-data
-            android:name="channelId"
-            android:value="k-appchina" />
-
-        <activity
-            android:name="com.kuguo.ad.MainActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name="com.kuguo.ad.BoutiqueActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleInstance"
-            android:theme="@android:style/Theme.Dialog" />
-
-        <service android:name="com.kuguo.ad.MainService" />
-
-        <receiver android:name="com.kuguo.ad.MainReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <!-- End -->
     </application>
 
 </manifest>

@@ -12,12 +12,13 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.ListActivity;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.emerson.service.LBSService;
 import com.emerson.service.LBSTool;
@@ -61,6 +62,7 @@ public class PhoneInfo extends ListActivity {
 					LocationData location = LastKnownLocation.getInstance().getLastKnownLocation(PhoneInfo.this, "userID");
 					Log.d(TAG, "latitude = " + location.latitude + "; longitude = " + location.longitude);
 					getLocation(location.latitude, location.longitude);
+					
 					lbsService.cancelRefresh();
 					break;
 				case LBSTool.GETLOCATION_FAILED:
@@ -90,6 +92,7 @@ public class PhoneInfo extends ListActivity {
 	private void getLocation(final double mlat, final double mLon) {
 		new Thread(new Runnable() {
 			public void run() {
+				Looper.prepare();
 				String url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + mlat + "," + mLon
 						+ "&sensor=true&language=zh-cn";
 				HttpClient httpClient = new DefaultHttpClient();
@@ -114,6 +117,7 @@ public class PhoneInfo extends ListActivity {
 						location = "";
 					}
 					Log.v(TAG, "location  = " + location);
+					Toast.makeText(getApplicationContext(), location, Toast.LENGTH_LONG).show();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
