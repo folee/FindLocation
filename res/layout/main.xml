@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/animation_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView  
+	    android:id="@+id/text"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" />
+    <Button 
+        android:id="@+id/geobtn"
+	    android:text="看看我在哪"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"/>
+    <Button 
+        android:id="@+id/send"
+	    android:text="点击把我的位置发送给朋友"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"/>
+    <Button 
+        android:id="@+id/getInfo"
+	    android:text="点击查看手机信息"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"/>
+</LinearLayout>
